@@ -24,8 +24,6 @@ window.addEventListener('DOMContentLoaded',function() {
   const quote = document.getElementById("quote");
   let r = document.querySelector(':root'),
       numWords = quote.textContent.split(' ').length;
-  console.log(quote.textContent)
-  console.log(numWords)
   if (numWords > 80) {r.style.setProperty('--font-size','1.15rem');
   } else if (numWords > 60) {r.style.setProperty('--font-size','1.4rem');
   } else if (numWords > 40) {r.style.setProperty('--font-size','1.65rem');}});

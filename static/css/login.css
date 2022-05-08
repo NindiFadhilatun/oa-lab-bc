@@ -14,14 +14,15 @@ html{height:100%;}
     --primary-color-light:#F6F5FF;
     --toggle-color:#DDD;
     --text-color:#3C3F41;
-    --font-size:2rem;
 }
 body{
     margin:0;
     padding:0;
-    font-family:sans-serif;
     background:var(--body-color);
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 body.dark{
     --body-color:#242526;
@@ -31,17 +32,55 @@ body.dark{
     --toggle-color:#fff;
     --text-color:#ccc;
 }
+.quote-box{
+    flex-basis: 76%;
+    min-width: calc(84% - 35em);
+    max-width: calc(84% - 22em);
+    padding-right: 5em;
+}
+blockquote{
+    font-size: 2rem;
+}
+cite{
+    display: block;
+    text-align: left;
+    font-family: Poppins, Arial, sans-serif;
+    margin-top: 0.65rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    font-style: normal;
+}
+blockquote q{
+    font-family: Georgia, serif;
+    font-style: italic;
+    letter-spacing: 0.1rem;
+}
+blockquote q span{
+    color: var(--text-color);
+    will-change: opacity, filter;
+    opacity: 0;
+    filter: blur(0px);
+}
+q{quotes: "“" "”" "‘" "’";}
+q:before{
+    content: open-quote;
+}
+q:after{content: close-quote;}
+q:before, q:after{
+    color: var(--text-color);
+    font-size: 2rem;
+}
 .login-box{
-    position:absolute;
-    top:49%;
-    right: 7.5%;
-    width:25em;
-    padding:2.5em 2.5em 2.25em;
-    transform:translate(0%,-50%);
+    flex-basis: 20%;
+    flex-shrink: 1;
+    max-height: 97%;
+    min-width:22em;
+    max-width:35em;
+    padding:2.25em 2.25em 2em;
     background:var(--sidebar-color);
     box-sizing:border-box;
     box-shadow:0.2em 0.2em 1.5em var(--text-color);
-    border-radius:0.625em;
+    border-radius:1em;
 }
 .login-box h2{
     margin:0 0 2.35em;
@@ -79,10 +118,15 @@ body.dark{
     color:var(--primary-color);
     font-size:0.75em;
 }
+#bottom-container{
+    display:flex;
+    align-items: flex-end;
+}
+.column{flex:50%;}
 .login-box form a{
     position:relative;
     display:inline-block;
-    padding:0.625em 1.25em;
+    padding:10px 1.25em;
     color:var(--primary-color);
     font-size:18px;
     text-decoration:none;
@@ -90,7 +134,16 @@ body.dark{
     overflow:hidden;
     transition:.5s;
     margin-top:2.5em;
-    letter-spacing:4px
+    letter-spacing:4px;
+}
+.the-amazing-toggle{
+    position:relative;
+    display:inline-block;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:1.25em;
+    overflow:hidden;
+    margin-top:2.5em;
 }
 .login-box a:hover{
     background:var(--primary-color);
@@ -209,54 +262,50 @@ i{
 }
 .ios-toggle:checked+.ios-label:active>i{margin-left:18px;}
 .ios-toggle:checked+label{background-color:#18191a;}
-.row{display:flex;}
-.column{flex:50%;}
-.the-amazing-toggle{
-    position:relative;
-    display:inline-block;
-    padding-top:0.625em;
-    padding-bottom:0.625em;
-    padding-left:1.25em;
-    overflow:hidden;
-    margin-top:2.5em;
-}
 /* Hope you enjoy the toggle as much as I do! Follow me @danielhannih on Twitter! */
 .swal2-popup.swal2-toast{background:var(--sidebar-color);}
 .swal2-popup{color:var(--text-color);}
-.quote-box{
-    position:absolute;
-    top:49%;
-    left:3.5%;
-    width:calc(80% - 25em);
-    transform:translate(0%,-50%);
+@media all and (max-width: 1024px){
+    .login-box{
+        min-width: 19em;
+    }
+    .quote-box{
+        padding-right: 2em;
+        max-width: calc(90% - 19em);
+    }
+    blockquote{
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    cite{
+        font-size: 0.85rem;
+        font-weight: normal;
+    }
 }
-blockquote{font-size: var(--font-size);}
-cite{
-    display: block;
-    text-align: left;
-    font-family: Poppins, Arial, sans-serif;
-    margin-top: 0.65rem;
-    font-size: 1rem;
-    color: var(--text-color);
-    font-style: normal;
+@media all and (max-width: 769px){
+    .quote-box{
+        display: none;
+    }
+    .login-box{
+        flex-basis: 20em;
+        max-width: 95%;
+        min-width: 18em;
+        padding: 1.5em;
+    }
 }
-blockquote q{
-    font-family: Georgia, serif;
-    font-style: italic;
-    letter-spacing: 0.1rem;
-}
-blockquote q span{
-    color: var(--text-color);
-    will-change: opacity, filter;
-    opacity: 0;
-    filter: blur(0px);
-}
-q{quotes: "“" "”" "‘" "’";}
-q:before{
-    content: open-quote;
-}
-q:after{content: close-quote;}
-q:before, q:after{
-    color: var(--text-color);
-    font-size: var(--font-size);
+@media all and (max-height: 600px){
+    .login-box h2{
+        margin:0 0 1.75em;
+        font-size: 1.25em;
+    }
+    .login-box .user-box input{
+        padding:0.65em 0;
+        font-size:1em;
+        margin-bottom:1.5em;
+        border-bottom:1px solid var(--text-color);
+    }
+    .login-box form a{
+        padding:0.45em 1em;
+        letter-spacing:3px;
+    }
 }
