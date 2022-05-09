@@ -111,7 +111,7 @@ func (m *Repository) Majors(w http.ResponseWriter, r *http.Request) {
 
 // Login renders the room page
 func (m *Repository) Login(w http.ResponseWriter, r *http.Request) {
-	quote, author := scraper.ScrapeQuoteWithTimeLimiter(550)
+	quote, author := scraper.ScrapeQuoteWithTimeLimiter(500)
 	render.Template(w, r, "login.page.tmpl", &models.TemplateData{
 		Quote:  quote,
 		Author: author,

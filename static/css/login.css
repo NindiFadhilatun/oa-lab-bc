@@ -73,6 +73,7 @@ q:before, q:after{
 .login-box{
     flex-basis: 20%;
     flex-shrink: 1;
+    min-height: 20em;
     max-height: 97%;
     min-width:22em;
     max-width:35em;

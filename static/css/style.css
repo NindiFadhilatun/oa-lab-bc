@@ -32,8 +32,8 @@ body{
     background-color: var(--body-color);
     transition: var(--tran-05);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 ::selection{
     background-color: var(--primary-color);
